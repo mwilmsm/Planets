@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://coko8pdwp0oua"]
+[gd_scene load_steps=5 format=3 uid="uid://coko8pdwp0oua"]
 
+[ext_resource type="Script" uid="uid://heoms5bsghqu" path="res://sun.gd" id="1_gtd5v"]
 [ext_resource type="Texture2D" uid="uid://bgycnsqlcr65o" path="res://img/euvi_aia304_2012_carrington_print.jpg" id="1_iveel"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yo8xk"]
@@ -11,10 +12,34 @@ radius = 5.0
 height = 10.0
 
 [node name="Sun" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+script = ExtResource("1_gtd5v")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 omni_range = 4096.0
+omni_attenuation = 0.0
 
 [node name="SunMesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_yo8xk")
 mesh = SubResource("SphereMesh_yo8xk")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "THE FUCKING SUN"
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler3D" to="." method="_on_visible_on_screen_enabler_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler3D" to="." method="_on_visible_on_screen_enabler_3d_screen_exited"]

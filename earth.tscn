@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ni8ipv7ocuui"]
+
+[ext_resource type="Texture2D" uid="uid://chphqssf8mcrl" path="res://img/2k_earth_daymap.jpg" id="1_om26h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_om26h"]
+albedo_texture = ExtResource("1_om26h")
+
+[sub_resource type="SphereMesh" id="SphereMesh_5i67w"]
+radius = 5.0
+height = 10.0
+
+[node name="Earth" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_om26h")
+mesh = SubResource("SphereMesh_5i67w")

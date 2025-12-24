@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bseu4hxkkc12b"]
+[gd_scene load_steps=8 format=3 uid="uid://bseu4hxkkc12b"]
 
 [ext_resource type="Texture2D" uid="uid://tqvmvq7kehh7" path="res://img/8k_stars.jpg" id="1_hbvo3"]
 [ext_resource type="Script" uid="uid://d1c56iw18xd0q" path="res://solar_system.gd" id="1_tfb7d"]
 [ext_resource type="PackedScene" uid="uid://coko8pdwp0oua" path="res://sun.tscn" id="2_hp4wh"]
+[ext_resource type="PackedScene" uid="uid://ni8ipv7ocuui" path="res://earth.tscn" id="4_auk15"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hp4wh"]
 panorama = ExtResource("1_hbvo3")
@@ -13,6 +14,7 @@ sky_material = SubResource("PanoramaSkyMaterial_hp4wh")
 [sub_resource type="Environment" id="Environment_auk15"]
 background_mode = 2
 sky = SubResource("Sky_tfb7d")
+sky_custom_fov = 62.4
 
 [node name="Solar System" type="Node3D"]
 script = ExtResource("1_tfb7d")
@@ -20,21 +22,13 @@ script = ExtResource("1_tfb7d")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_auk15")
 
-[node name="Sun" parent="." instance=ExtResource("2_hp4wh")]
-
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.10056)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.4006)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Sun" parent="." instance=ExtResource("2_hp4wh")]
 
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "asdf"
+[node name="Earth" parent="." instance=ExtResource("4_auk15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 850.752, 0, 0)

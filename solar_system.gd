@@ -10,6 +10,12 @@ func _physics_process(_delta):
 	pass
 
 func _process(delta: float) -> void:
+	handleCamera(delta)
+
+	if (Input.is_action_pressed("escape")):
+		get_tree().quit()
+
+func handleCamera(delta: float) -> void:
 	var acceleration = Vector3.ZERO
 	if (Input.is_action_pressed("camera_back")):
 		acceleration += Vector3.BACK
@@ -36,8 +42,7 @@ func _process(delta: float) -> void:
 		velocity.z = 0
 
 	$CameraPivot/Camera3D.position += velocity
+	print("Velocity: " + str(velocity))
+	print("Position: " + str($CameraPivot/Camera3D.position))
 
-	$Control/Label.text = str($CameraPivot/Camera3D.position)
-
-	if (Input.is_action_pressed("escape")):
-		get_tree().quit()
+	#$Control/Label.text = str($CameraPivot/Camera3D.position)
