@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dytyay62t60l"]
+
+[ext_resource type="Texture2D" uid="uid://b563gaa50k23m" path="res://img/2k_neptune.jpg" id="1_ktkx8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgwa2"]
+albedo_texture = ExtResource("1_ktkx8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ms8sn"]
+
+[node name="Neptune" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qgwa2")
+mesh = SubResource("SphereMesh_ms8sn")

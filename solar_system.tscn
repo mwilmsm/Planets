@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bseu4hxkkc12b"]
+[gd_scene load_steps=9 format=3 uid="uid://bseu4hxkkc12b"]
 
 [ext_resource type="Texture2D" uid="uid://tqvmvq7kehh7" path="res://img/8k_stars.jpg" id="1_hbvo3"]
 [ext_resource type="Script" uid="uid://d1c56iw18xd0q" path="res://solar_system.gd" id="1_tfb7d"]
 [ext_resource type="PackedScene" uid="uid://coko8pdwp0oua" path="res://sun.tscn" id="2_hp4wh"]
 [ext_resource type="PackedScene" uid="uid://ni8ipv7ocuui" path="res://earth.tscn" id="4_auk15"]
+[ext_resource type="PackedScene" uid="uid://dytyay62t60l" path="res://neptune.tscn" id="5_ms4l2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hp4wh"]
 panorama = ExtResource("1_hbvo3")
@@ -28,7 +29,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.10056)
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.4006)
 
-[node name="Sun" parent="." instance=ExtResource("2_hp4wh")]
+[node name="SunInstance" parent="." instance=ExtResource("2_hp4wh")]
+transform = Transform3D(139, 0, 0, 0, 139, 0, 0, 0, 139, 0, 0, 0)
 
 [node name="Earth" parent="." instance=ExtResource("4_auk15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 850.752, 0, 0)
+transform = Transform3D(9.159, 0, 0, 0, 9.159, 0, 0, 0, 9.159, 850.752, 0, 0)
+
+[node name="Neptune" parent="." instance=ExtResource("5_ms4l2")]
+transform = Transform3D(35.56, 0, 0, 0, 35.56, 0, 0, 0, 35.56, 224.483, 0, 0)

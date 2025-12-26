@@ -6,6 +6,12 @@ extends Node3D
 
 var velocity = Vector3.ZERO
 
+#func _ready():
+	#$SunInstance.scale.x = 139.2
+	#$SunInstance.scale.y = 139.2
+	#$SunInstance.scale.z = 139.2
+
+
 func _physics_process(_delta):
 	pass
 
@@ -42,7 +48,7 @@ func handleCamera(delta: float) -> void:
 		velocity.z = 0
 
 	$CameraPivot/Camera3D.position += velocity
-	print("Velocity: " + str(velocity))
-	print("Position: " + str($CameraPivot/Camera3D.position))
 
-	#$Control/Label.text = str($CameraPivot/Camera3D.position)
+	if get_node_or_null("Control/SunLabel") != null and get_node_or_null("CameraPivot/Camera3D") != null:
+		$Control/SunLabel.text = str($CameraPivot/Camera3D.position)
+		print("if")
