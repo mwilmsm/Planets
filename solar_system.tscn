@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://tqvmvq7kehh7" path="res://img/8k_stars.jpg" id="1_hbvo3"]
 [ext_resource type="Script" uid="uid://d1c56iw18xd0q" path="res://solar_system.gd" id="1_tfb7d"]
 [ext_resource type="PackedScene" uid="uid://coko8pdwp0oua" path="res://sun.tscn" id="2_hp4wh"]
+[ext_resource type="Script" uid="uid://dx73ir5lcbg8w" path="res://camera_3d.gd" id="3_swmsm"]
 [ext_resource type="PackedScene" uid="uid://ni8ipv7ocuui" path="res://earth.tscn" id="4_auk15"]
 [ext_resource type="PackedScene" uid="uid://dytyay62t60l" path="res://neptune.tscn" id="5_ms4l2"]
 
@@ -25,6 +26,7 @@ environment = SubResource("Environment_auk15")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=697928773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.50116)
+script = ExtResource("3_swmsm")
 
 [node name="SunInstance" parent="." unique_id=770964498 instance=ExtResource("2_hp4wh")]
 transform = Transform3D(139, 0, 0, 0, 139, 0, 0, 0, 139, 0, 0, 0)
